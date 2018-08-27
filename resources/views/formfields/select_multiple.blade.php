@@ -11,7 +11,7 @@ $dataTypeContent->{$row->field} = json_decode($dataTypeContent->{$row->field})
         @if( method_exists( $dataType->model_name, camel_case($row->field) ) )
             <?php 
                 // $selected_values = isset($dataTypeContent) ? $dataTypeContent->{camel_case($row->field)}()->pluck($options->relationship->key)->all() : []; 
-                $selected_values = $dataTypeContent->related_articles;
+                $selected_values = $dataTypeContent->related_articles ? $dataTypeContent->related_articles : [];
             ?>
             <?php
             $relationshipListMethod = camel_case($row->field) . 'List';
